@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unmedia Social LLC</title>
+    <meta name="description" content="Unmedia Social LLC builds iOS apps for real-world connection. Hango for group coordination, Slanga for Brazilian Portuguese language learning.">
     <link rel="icon" type="image/png" href="/favicon.ico">
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/favicon.ico">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -17,55 +19,127 @@
             background: #fff;
         }
 
-        /* Header */
-        .header {
-            text-align: center;
-            padding: 48px 20px 0;
-        }
-
-        .logo {
-            width: 80px;
-            height: 80px;
-            border-radius: 18px;
-        }
-
-        .company-name {
-            font-size: 18px;
-            font-weight: 600;
-            margin-top: 12px;
-            color: #333;
-        }
-
-        /* Hero */
-        .hero {
-            text-align: center;
-            padding: 48px 20px 32px;
-            max-width: 600px;
+        /* Nav */
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 40px;
+            max-width: 1080px;
             margin: 0 auto;
         }
 
-        .hero h1 {
-            font-size: 40px;
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #111;
+        }
+
+        .nav-brand img {
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
+        }
+
+        .nav-brand span {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #111;
+        }
+
+        /* Company Hero */
+        .company-hero {
+            text-align: center;
+            padding: 72px 20px 40px;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .company-hero h1 {
+            font-size: 42px;
             font-weight: 700;
-            line-height: 1.15;
+            line-height: 1.12;
             letter-spacing: -0.5px;
             color: #111;
         }
 
-        .hero .subtitle {
-            font-size: 18px;
+        .company-hero .tagline {
+            font-size: 19px;
             color: #666;
             margin-top: 16px;
             line-height: 1.5;
         }
 
+        /* Product Section */
+        .product-section {
+            padding: 72px 20px 80px;
+        }
+
+        .product-section.alt {
+            background: #fafafa;
+        }
+
+        .product-inner {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .product-header {
+            text-align: center;
+        }
+
+        .product-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #999;
+            margin-bottom: 14px;
+        }
+
+        .product-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.3px;
+            color: #111;
+        }
+
+        .product-subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-top: 14px;
+            line-height: 1.5;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .app-store-badge {
             display: inline-block;
-            margin-top: 28px;
+            margin-top: 24px;
         }
 
         .app-store-badge img {
-            height: 50px;
+            height: 46px;
         }
 
         /* Screenshots */
@@ -74,9 +148,7 @@
             justify-content: center;
             align-items: flex-end;
             gap: 20px;
-            padding: 40px 20px 60px;
-            max-width: 900px;
-            margin: 0 auto;
+            padding: 48px 0 56px;
             overflow-x: auto;
         }
 
@@ -93,37 +165,16 @@
             height: auto;
         }
 
-        .phone-frame.main {
-            width: 260px;
-        }
-
-        .phone-frame.side {
-            width: 220px;
-        }
+        .phone-frame.main { width: 250px; }
+        .phone-frame.side { width: 210px; }
 
         /* Features */
-        .features {
-            background: #fafafa;
-            padding: 64px 20px;
-        }
-
-        .features-inner {
-            max-width: 720px;
-            margin: 0 auto;
-        }
-
-        .features h2 {
-            font-size: 28px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 40px;
-            color: #111;
-        }
-
         .feature-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 32px 40px;
+            gap: 28px 40px;
+            max-width: 680px;
+            margin: 0 auto;
         }
 
         .feature-item h3 {
@@ -175,13 +226,54 @@
             margin-bottom: 8px;
         }
 
+        footer a {
+            color: #999;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
         /* Mobile */
         @media (max-width: 640px) {
-            .hero h1 {
+            .nav {
+                padding: 16px 20px;
+            }
+
+            .nav-brand span {
+                font-size: 15px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .nav-links a {
+                font-size: 14px;
+            }
+
+            .company-hero {
+                padding: 48px 20px 28px;
+            }
+
+            .company-hero h1 {
                 font-size: 30px;
             }
 
-            .hero .subtitle {
+            .company-hero .tagline {
+                font-size: 16px;
+            }
+
+            .product-section {
+                padding: 56px 20px 64px;
+            }
+
+            .product-header h2 {
+                font-size: 28px;
+            }
+
+            .product-subtitle {
                 font-size: 16px;
             }
 
@@ -192,51 +284,57 @@
 
             .screenshots {
                 gap: 12px;
-                padding: 32px 16px 48px;
+                padding: 36px 0 44px;
             }
 
-            .phone-frame.main {
-                width: 200px;
-            }
-
-            .phone-frame.side {
-                width: 170px;
-            }
+            .phone-frame.main { width: 200px; }
+            .phone-frame.side { width: 170px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <img src="/images/unmediaSocialIcon001.png" alt="Unmedia Social" class="logo">
-        <div class="company-name">Unmedia Social</div>
-    </div>
-
-    <div class="hero">
-        <h1>Group plans,<br>without the group chat</h1>
-        <p class="subtitle">
-            Hango gives your crew one place to propose plans, pick dates, vote on ideas, and actually show up.
-        </p>
-        <a class="app-store-badge" href="https://apps.apple.com/us/app/hangrapp/id6753316347" target="_blank" rel="noopener">
-            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+    <nav class="nav">
+        <a href="#" class="nav-brand">
+            <img src="/images/unmediaSocialIcon001.png" alt="Unmedia Social">
+            <span>Unmedia Social</span>
         </a>
+        <ul class="nav-links">
+            <li><a href="#hango">Hango</a></li>
+            <li><a href="#slanga">Slanga</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="company-hero">
+        <h1>Apps for real-world connection</h1>
+        <p class="tagline">We build iOS apps that help people coordinate, learn, and engage with the world around them.</p>
     </div>
 
-    <div class="screenshots">
-        <div class="phone-frame side">
-            <img src="/images/hangout-carpool.png" alt="Coordinate carpools and see who's going">
-        </div>
-        <div class="phone-frame main">
-            <img src="/images/hangout-group-feed.png" alt="Your group's plans, ideas, and watch parties in one feed">
-        </div>
-        <div class="phone-frame side">
-            <img src="/images/hangout-tickets.png" alt="Coordinate group ticket purchases">
-        </div>
-    </div>
+    <!-- Hango -->
+    <section id="hango" class="product-section">
+        <div class="product-inner">
+            <div class="product-header">
+                <div class="product-label">Hango</div>
+                <h2>Group plans, without the group chat</h2>
+                <p class="product-subtitle">One place for your crew to propose plans, pick dates, vote on ideas, and actually show up.</p>
+                <a class="app-store-badge" href="https://apps.apple.com/us/app/hangrapp/id6753316347" target="_blank" rel="noopener">
+                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+                </a>
+            </div>
 
-    <div class="features">
-        <div class="features-inner">
-            <h2>Everything your group chat can't do</h2>
+            <div class="screenshots">
+                <div class="phone-frame side">
+                    <img src="/images/hangout-carpool.png" alt="Coordinate carpools and rides">
+                </div>
+                <div class="phone-frame main">
+                    <img src="/images/hangout-group-feed.png" alt="Your group's plans and ideas in one feed">
+                </div>
+                <div class="phone-frame side">
+                    <img src="/images/hangout-tickets.png" alt="Coordinate group ticket purchases">
+                </div>
+            </div>
+
             <div class="feature-grid">
                 <div class="feature-item">
                     <h3>Groups</h3>
@@ -251,7 +349,7 @@
                     <p>Can't agree on a restaurant? Put it to a vote and move on.</p>
                 </div>
                 <div class="feature-item">
-                    <h3>Watch parties</h3>
+                    <h3>Watch Parties</h3>
                     <p>Track what you're watching together, episode by episode.</p>
                 </div>
                 <div class="feature-item">
@@ -264,9 +362,54 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="about">
+    <!-- Slanga -->
+    <section id="slanga" class="product-section alt">
+        <div class="product-inner">
+            <div class="product-header">
+                <div class="product-label">Slanga</div>
+                <h2>Brazilian Portuguese beyond the textbook</h2>
+                <p class="product-subtitle">Interactive lessons, real-world slang, and LGBTQ+ cultural guides for travelers heading to Brazil.</p>
+                <a class="app-store-badge" href="https://apps.apple.com/us/app/slanga/id6758809369" target="_blank" rel="noopener">
+                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+                </a>
+            </div>
+
+            <div class="screenshots">
+                <div class="phone-frame side">
+                    <img src="/images/slanga-conversation.png" alt="Practice real conversations at a Brazilian padaria">
+                </div>
+                <div class="phone-frame main">
+                    <img src="/images/slanga-learn-home.png" alt="Track your streak, level up, and start lessons">
+                </div>
+                <div class="phone-frame side">
+                    <img src="/images/slanga-culture.png" alt="Explore Brazilian culture and language articles">
+                </div>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>Interactive Lessons</h3>
+                    <p>Practice conversations in real Brazilian scenarios, from ordering at a padaria to navigating local nightlife.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Vocabulary & Pronunciation</h3>
+                    <p>Browse words with audio pronunciation, context tags, and usage examples you'll actually need.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Menu Translation</h3>
+                    <p>Photograph Portuguese menus and signs and get instant translations organized by course.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Culture Guide</h3>
+                    <p>Articles on Brazilian LGBTQ+ culture, language origins, and local scenes curated for travelers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="contact" class="about">
         <p>
             Unmedia Social LLC builds tools for real-world connection.<br>
             <a href="mailto:brian@unmediasocial.com">brian@unmediasocial.com</a>
