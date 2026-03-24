@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "server",
+  "dolt_database": "unmediaWebsite",
+  "project_id": "39acd4dd-a927-4bd6-a625-ba0e97370795"
+}
